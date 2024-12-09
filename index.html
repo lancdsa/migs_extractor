@@ -10,8 +10,8 @@
     <style>
       body {
         font-family: sans-serif;
-        color: white;
-        background: black;
+        color: #fafafa;
+        background: #0a0a0a;
         margin: 1rem auto;
         max-width: 720px;
         width: 100%;
@@ -23,10 +23,35 @@
         font-weight: bold;
       }
 
+      p {
+        margin: 0.5rem 0;
+      }
+
+      #form {
+        padding: 0.5rem 0;
+      }
+
+      a,
+      a:visited {
+        color: lightblue;
+      }
+      a:hover,
+      a:focus {
+        color: lightgreen;
+      }
+
       #result {
         border: 1px solid white;
         margin: 1rem 0;
         padding: 1rem;
+      }
+
+      footer {
+        margin: 1rem 0;
+      }
+
+      hr {
+        margin-top: 2rem;
       }
     </style>
   </head>
@@ -45,21 +70,23 @@
       browser.
     </p>
 
-    <label>
-      Membership CSV (what National sends us)
-      <input type="file" id="membershipFileInput" accept=".csv" />
-    </label>
+    <div id="form">
+      <label>
+        Membership CSV (what National sends us)
+        <input type="file" id="membershipFileInput" accept=".csv" />
+      </label>
 
-    <br />
+      <br />
 
-    <label>
-      Action Network Responses CSV export
-      <input type="file" id="checkFileInput" accept=".csv" />
-    </label>
+      <label>
+        Action Network Responses CSV export
+        <input type="file" id="checkFileInput" accept=".csv" />
+      </label>
 
-    <br />
+      <br />
 
-    <button id="compareButton">Extract Emails</button>
+      <button id="compareButton">Extract Emails</button>
+    </div>
 
     <h2>Emails of MiGS</h2>
 
@@ -68,5 +95,19 @@
     <button id="copy">Copy to Clipboard</button>
 
     <script src="main.js"></script>
+
+    <hr />
+
+    <footer>
+      <p>
+        A free and open source project by
+        <a href="https://lancdsa.org">Lancaster DSA</a>.
+      </p>
+      <p>
+        <a href="https://github.com/lancdsa/migs_extractor"
+          >View the source on GitHub.</a
+        >
+      </p>
+    </footer>
   </body>
 </html>

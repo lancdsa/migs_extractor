@@ -46,7 +46,13 @@ compareButton.addEventListener("click", () => {
       const emails = Array.from(
         new Set(checkMigs.map((r) => r["email"] || r["Email"]))
       );
-      resultDiv.innerText = emails.join("\n");
+
+      if (emails.length > 0) {
+        resultDiv.innerText = emails.join("\n");
+      } else {
+        resultDiv.innerText =
+          "No Members in Good Standing found in the RSVP export.";
+      }
     };
 
     checkReader.readAsText(checkFile);

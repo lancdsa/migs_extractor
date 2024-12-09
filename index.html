@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <title>DSA MiGS Extractor</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        color: white;
+        background: black;
+        margin: 1rem auto;
+        max-width: 720px;
+        width: 100%;
+      }
+
+      label {
+        margin: 0.25rem 0;
+        display: block;
+        font-weight: bold;
+      }
+
+      #result {
+        border: 1px solid white;
+        margin: 1rem 0;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>DSA MiGS Extractor</h1>
+
+    <p>
+      Parse out the emails of Members in Good Standing (MiGS) from an uploaded
+      CSV based on your chapter's members CSV. Useful for extracing MiGS from an
+      Action Network RSVP for easily uploading to OpaVote.
+    </p>
+
+    <p>
+      No data is transfered or stored online—everything happens in locally your
+      browser.
+    </p>
+
+    <label>
+      Membership CSV (what National sends us)
+      <input type="file" id="membershipFileInput" accept=".csv" />
+    </label>
+
+    <br />
+
+    <label>
+      Action Network Responses CSV export
+      <input type="file" id="checkFileInput" accept=".csv" />
+    </label>
+
+    <br />
+
+    <button id="compareButton">Extract Emails</button>
+
+    <h2>Emails of MiGS</h2>
+
+    <div id="result"></div>
+
+    <button id="copy">Copy to Clipboard</button>
+
+    <script src="main.js"></script>
+  </body>
+</html>

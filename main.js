@@ -27,21 +27,22 @@ compareButton.addEventListener("click", () => {
       (m) => m.membership_status == "Member in Good Standing"
     );
     const migsEmails = migs
-      .map((m) => m.email)
+      .map((m) => m.email.toLowerCase())
       .filter((email) => !!email && email.trim() != "");
-
-    console.log(migsEmails);
 
     checkReader.onload = (event) => {
       const csv2 = event.target.result;
       const checkData = parseCSV(csv2);
-      console.log(checkData);
 
-      const checkMigs = checkData.filter((r) =>
-        migsEmails.includes(r["email"] || r["Email"])
-      );
+      const checkMigs = checkData.filter((r) => {
+        let email = r["email"] || r["Email"];
+        if (!email) {
+          return false;
+        }
 
-      console.log(checkMigs);
+        return migsEmails.includes(email.toLowerCase());
+      });
+
       const emails = Array.from(
         new Set(checkMigs.map((r) => r["email"] || r["Email"]))
       );
